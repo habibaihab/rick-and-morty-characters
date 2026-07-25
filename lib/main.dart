@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rick_and_morty_characters/core/route_manager/generate_routes.dart';
-import 'package:rick_and_morty_characters/features/characters/presentation/screens/home_screen.dart';
-
 void main() {
   runApp(const MyApp());
 }
