@@ -5,23 +5,24 @@ import 'package:rick_and_morty_characters/core/errors/failure_handler.dart';
 import 'package:rick_and_morty_characters/features/characters/data/data_source/base_data_source.dart';
 import 'package:rick_and_morty_characters/features/characters/data/models/character_model.dart';
 import 'package:rick_and_morty_characters/features/characters/domain/entities/character_entity.dart';
-import 'package:rick_and_morty_characters/features/characters/domain/repository/all_characters_repo.dart';
+import 'package:rick_and_morty_characters/features/characters/domain/entities/character_filters_entity.dart';
+import 'package:rick_and_morty_characters/features/characters/domain/repository/get_characters_repo.dart';
 
-class AllCharactersRepImp implements AllCharactersRepo{
+class GetCharactersRepImp implements GetCharactersRepo{
 
   final BaseDataSource baseDataSource;
 
-  AllCharactersRepImp(this.baseDataSource);
+  GetCharactersRepImp(this.baseDataSource);
 
 
 
   @override
-  Future<Either<Failure,List<CharacterEntity>>> getAllCharacters() async {
+  Future<Either<Failure,List<CharacterEntity>>> getCharacters(CharacterFiltersEntity? filters) async {
     try{
 
       final List<CharacterEntity> charactersData = [];
 
-      final response = await baseDataSource.getAllCharacters();
+      final response = await baseDataSource.getCharacters(filters);
 
       if(response.statusCode == 200){
         var data = response.data["results"];

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rick_and_morty_characters/core/constants/app_colors.dart';
-import 'package:rick_and_morty_characters/features/characters/presentation/manager/get_all_characters_cubit.dart';
+import 'package:rick_and_morty_characters/features/characters/presentation/manager/get_characters_cubit.dart';
 import 'package:rick_and_morty_characters/features/characters/presentation/widgets/character_grid_view.dart';
 import 'package:rick_and_morty_characters/features/characters/presentation/widgets/search_text_field.dart';
 
@@ -41,15 +41,15 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: 15.h),
               Expanded(
                 child:
-                    BlocBuilder<GetAllCharactersCubit, GetAllCharactersState>(
+                    BlocBuilder<GetCharactersCubit, GetCharactersState>(
                       builder: (context, state) {
-                        if (state is LoadingGetAllCharacters) {
+                        if (state is LoadingGetCharacters) {
                           return const Center(
                             child: CircularProgressIndicator(),
                           );
                         }
 
-                        if (state is ErrorGetAllCharacters) {
+                        if (state is ErrorGetCharacters) {
                           return Center(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -72,7 +72,7 @@ class HomeScreen extends StatelessWidget {
                                 ElevatedButton(
                                   onPressed: () {
                                     context
-                                        .read<GetAllCharactersCubit>()
+                                        .read<GetCharactersCubit>()
                                         .getAllCharacters();
                                   },
                                   child: Text(
@@ -88,7 +88,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                           );
                         }
-                        if (state is GetAllCharactersEmpty) {
+                        if (state is GetCharactersEmpty) {
                           return Center(
                             child: Text(
                               "No characters found",
@@ -100,7 +100,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                           );
                         }
-                        if (state is SuccessGetAllCharacters) {
+                        if (state is SuccessGetCharacters) {
                           return CharacterGridView(
                             charactersList: state.charactersData,
                           );
