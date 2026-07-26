@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
                 "Explore Characters".toUpperCase(),
                 style: GoogleFonts.rajdhani(
                   color: AppColors.textPrimary,
-                  fontSize: 35.sp,
+                  fontSize: 28.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),

@@ -6,12 +6,14 @@ import 'package:rick_and_morty_characters/core/route_manager/routes_names.dart';
 import 'package:rick_and_morty_characters/features/characters/presentation/manager/get_characters_cubit.dart';
 import 'package:rick_and_morty_characters/features/characters/presentation/screens/character_details.dart';
 import 'package:rick_and_morty_characters/features/characters/presentation/screens/home_screen.dart';
+import 'package:rick_and_morty_characters/features/splash/presentation/screen/splash_screen.dart';
 
 import '../../features/characters/domain/entities/character_entity.dart';
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: RoutesNames.home,
+  initialLocation: RoutesNames.splash,
     routes: [
+      GoRoute(path: RoutesNames.splash,builder: (context, state) => SplashScreen(),),
       GoRoute(path: RoutesNames.home,
         builder: (context, state) => BlocProvider(
           create:(context) =>  GetCharactersCubit(),child:HomeScreen() ,
