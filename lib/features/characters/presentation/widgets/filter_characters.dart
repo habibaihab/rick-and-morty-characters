@@ -13,24 +13,65 @@ class FilterCharacters extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.watch<GetCharactersCubit>();
+    final filtersCount = cubit.currentFilters.filtersCount;
+
     return Container(
       padding: EdgeInsets.all(0.8.r),
       decoration: BoxDecoration(
         color: AppColors.filledColor,
         borderRadius: BorderRadius.circular(10.r),
-        border: BoxBorder.all(color: AppColors.borderColor,width: 1.5.r)
+        border: Border.all(
+          color: filtersCount > 0
+              ? AppColors.unknown
+              : AppColors.borderColor,
+          width: 1.5.r,
+        ),
       ),
-      child: IconButton(
-          onPressed: () async {
-            final cubit = context.read<GetCharactersCubit>();
-            final filters = await showFiltersBottomSheet(context,
-              initialFilters: cubit.currentFilters
-            );
-            if (filters != null) {
-              onApplyFilters(filters);
-            }
-          },
-          icon: Icon(Icons.filter_list_alt,color: AppColors.textMuted,)),
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          IconButton(
+            onPressed: () async {
+              final filters = await showFiltersBottomSheet(
+                context,
+                initialFilters: cubit.currentFilters,
+              );
+
+              if (filters != null) {
+                onApplyFilters(filters);
+              }
+            },
+            icon: Icon(
+              Icons.filter_list_alt,
+              color: AppColors.textMuted,
+            ),
+          ),
+
+          if (filtersCount > 0)
+            Positioned(
+              top: 6,
+              right: 6,
+              child: Container(
+                width: 18.w,
+                height: 18.w,
+                decoration: const BoxDecoration(
+                  color: Colors.red,
+                  shape: BoxShape.circle,
+                ),
+                alignment: Alignment.center,
+                child: Text(
+                  "$filtersCount",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 10.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+        ],
+      ),
     );
   }
 

@@ -6,10 +6,12 @@ import '../../../../core/constants/app_colors.dart';
 
 class SearchTextField extends StatelessWidget {
   const SearchTextField({super.key});
-
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onChanged: (value) {
+
+      },
       style: TextStyle(
         color: AppColors.textMuted,
         fontSize: 16.sp

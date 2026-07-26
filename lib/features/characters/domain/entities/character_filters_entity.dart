@@ -55,4 +55,16 @@ class CharacterFiltersEntity {
 
     return query;
   }
+
+  int get filtersCount {
+    int count = 0;
+
+    if (name?.trim().isNotEmpty ?? false) count++;
+    if (status?.trim().isNotEmpty ?? false) count++;
+    if (species?.trim().isNotEmpty ?? false) count++;
+    if (type?.trim().isNotEmpty ?? false) count++;
+    if (gender?.trim().isNotEmpty ?? false) count++;
+
+    return count;
+  }
 }

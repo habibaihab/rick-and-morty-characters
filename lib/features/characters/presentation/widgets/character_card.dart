@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -64,43 +63,62 @@ class CharacterCard extends StatelessWidget {
               spacing: 5.r,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-              Text(characterData.name,style: GoogleFonts.rajdhani(
-                  color: AppColors.textPrimary,
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.bold
-              ),overflow: TextOverflow.ellipsis,
-                  maxLines: 1,),
-              Row(
-                children: [
-                  Container(
-                    width: 8,
-                    height: 8,
-                    decoration: BoxDecoration(
-                      color: getStatusColor(characterData.status),
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                  const SizedBox(width: 6),
-                  Expanded(
-                    child: Text(
-                      "${characterData.status} • ${ characterData.species}",style: GoogleFonts.poppins(
-                      color: AppColors.textMuted,
-                    ),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                    ),
-                  ),
-                ],
-              ),
                 Text(
-                  characterData.type,style: GoogleFonts.poppins(
-                    color: AppColors.textMuted
-                ),
+                  characterData.name,
+                  style: GoogleFonts.rajdhani(
+                    color: AppColors.textPrimary,
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                 ),
-            ],),
-          )
+                Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: "Gender: ",
+                        style: GoogleFonts.poppins(
+                          color: AppColors.textPrimary,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      TextSpan(
+                        text: characterData.gender,
+                        style: GoogleFonts.poppins(
+                          color: AppColors.textMuted,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                ),
+                Row(
+                  children: [
+                    Container(
+                      width: 8,
+                      height: 8,
+                      decoration: BoxDecoration(
+                        color: getStatusColor(characterData.status),
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                    const SizedBox(width: 6),
+                    Expanded(
+                      child: Text(
+                        "${characterData.status} • ${characterData.species}",
+                        style: GoogleFonts.poppins(color: AppColors.textMuted),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
