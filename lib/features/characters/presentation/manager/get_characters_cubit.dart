@@ -22,8 +22,10 @@ class GetCharactersCubit extends Cubit<GetCharactersState> {
   late  ApiService apiService;
 
   List<CharacterEntity> _charactersData = [];
+  List<CharacterEntity> _allCharactersData = [];
 
   List<CharacterEntity> get charactersData => _charactersData;
+  List<CharacterEntity> get allCharactersData => _allCharactersData;
 
   CharacterFiltersEntity currentFilters = const CharacterFiltersEntity();
 
@@ -49,11 +51,31 @@ class GetCharactersCubit extends Cubit<GetCharactersState> {
         (data){
           if (data.isEmpty) {
             emit(GetCharactersEmpty());
+
           } else {
             _charactersData = data;
+            _allCharactersData =data;
             emit(SuccessGetCharacters(_charactersData));
           }
         });
+  }
+
+  void searchCharacters(String searchText) {
+    if (searchText.trim().isEmpty) {
+      _charactersData = _allCharactersData;
+    } else {
+      _charactersData = _allCharactersData.where((character) {
+        return character.name
+            .toLowerCase()
+            .contains(searchText.toLowerCase());
+      }).toList();
+      if(_charactersData.isEmpty){
+        emit(GetCharactersEmpty());
+        return;
+      }
+    }
+
+    emit(SuccessGetCharacters(_charactersData));
   }
 
 

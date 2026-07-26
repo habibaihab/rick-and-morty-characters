@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../core/constants/app_colors.dart';
+import '../manager/get_characters_cubit.dart';
 
 class SearchTextField extends StatelessWidget {
   const SearchTextField({super.key});
   @override
   Widget build(BuildContext context) {
     return TextField(
-      onChanged: (value) {
-
-      },
+        onChanged: (value) {
+          context.read<GetCharactersCubit>().searchCharacters(value);
+        },
       style: TextStyle(
         color: AppColors.textMuted,
         fontSize: 16.sp
@@ -44,7 +46,7 @@ class SearchTextField extends StatelessWidget {
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16.r),
           borderSide:BorderSide(
-            color:AppColors.aliveDim,
+            color:AppColors.unknown,
             width:1.5.r,
           ),
         ),

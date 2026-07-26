@@ -32,10 +32,14 @@ class GetCharactersRepImp implements GetCharactersRepo{
         }
         return Right(charactersData);
       }else{
-        return Left(ServerError("Server Error"));
+
+        return Left(ServerError("Unexpected response"));
       }
 
-    }on DioException catch(dioException){
+    }on DioException catch (dioException) {
+      if (dioException.response?.statusCode == 404) {
+        return const Right([]);
+      }
       return Left(ServerError(getErrorMessage(dioException)));
     }
 
