@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:rick_and_morty_characters/core/constants/app_colors.dart';
 import 'package:rick_and_morty_characters/features/characters/presentation/manager/get_characters_cubit.dart';
 import 'package:rick_and_morty_characters/features/characters/presentation/widgets/character_grid_view.dart';
+import 'package:rick_and_morty_characters/features/characters/presentation/widgets/filter_characters.dart';
 import 'package:rick_and_morty_characters/features/characters/presentation/widgets/search_text_field.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -37,7 +38,19 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20.h),
-              SearchTextField(),
+              Row(
+                children: [
+                  Expanded(child: SearchTextField()),
+                  SizedBox(width: 8.w,),
+                  FilterCharacters(
+                    onApplyFilters: (filters) {
+                      context.read<GetCharactersCubit>().getAllCharacters(
+                        filters: filters,
+                      );
+                    },
+                  )
+                ],
+              ),
               SizedBox(height: 15.h),
               Expanded(
                 child:

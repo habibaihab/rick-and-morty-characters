@@ -81,10 +81,14 @@ class CharacterCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 6),
-                  Text(
-                    "${characterData.status} • ${ characterData.species}",style: GoogleFonts.poppins(
-                    color: AppColors.textMuted
-                  ),
+                  Expanded(
+                    child: Text(
+                      "${characterData.status} • ${ characterData.species}",style: GoogleFonts.poppins(
+                      color: AppColors.textMuted,
+                    ),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                    ),
                   ),
                 ],
               ),

@@ -13,19 +13,21 @@ class CharacterFiltersEntity {
     this.gender,
   });
 
+  static const _noChange = Object();
+
   CharacterFiltersEntity copyWith({
-    String? name,
-    String? status,
-    String? species,
-    String? type,
-    String? gender,
+    Object? name = _noChange,
+    Object? status = _noChange,
+    Object? species = _noChange,
+    Object? type = _noChange,
+    Object? gender = _noChange,
   }) {
     return CharacterFiltersEntity(
-      name: name ?? this.name,
-      status: status ?? this.status,
-      species: species ?? this.species,
-      type: type ?? this.type,
-      gender: gender ?? this.gender,
+      name: name == _noChange ? this.name : name as String?,
+      status: status == _noChange ? this.status : status as String?,
+      species: species == _noChange ? this.species : species as String?,
+      type: type == _noChange ? this.type : type as String?,
+      gender: gender == _noChange ? this.gender : gender as String?,
     );
   }
   Map<String, dynamic> toQueryParameters() {

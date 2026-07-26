@@ -25,10 +25,14 @@ class GetCharactersCubit extends Cubit<GetCharactersState> {
 
   List<CharacterEntity> get charactersData => _charactersData;
 
+  CharacterFiltersEntity currentFilters = const CharacterFiltersEntity();
+
 
   Future<void>getAllCharacters({
     CharacterFiltersEntity? filters,
   }) async{
+    currentFilters = filters ?? const CharacterFiltersEntity();
+
     apiService = ApiService();
     baseDataSource = RemoteDataSource(apiService);
     getCharactersRepo = GetCharactersRepImp(baseDataSource);
@@ -36,7 +40,7 @@ class GetCharactersCubit extends Cubit<GetCharactersState> {
 
     emit(LoadingGetCharacters());
 
-    final result = await getCharactersUseCase.execute(filters);
+    final result = await getCharactersUseCase.execute(currentFilters);
 
     return result.fold(
         (error){
