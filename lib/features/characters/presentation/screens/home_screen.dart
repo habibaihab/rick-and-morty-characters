@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:rick_and_morty_characters/core/constants/app_colors.dart';
 import 'package:rick_and_morty_characters/features/characters/presentation/manager/get_characters_cubit.dart';
 import 'package:rick_and_morty_characters/features/characters/presentation/widgets/character_grid_view.dart';
+import 'package:rick_and_morty_characters/features/characters/presentation/widgets/export_data_button.dart';
 import 'package:rick_and_morty_characters/features/characters/presentation/widgets/filter_characters.dart';
 import 'package:rick_and_morty_characters/features/characters/presentation/widgets/search_text_field.dart';
 
@@ -122,6 +123,8 @@ class HomeScreen extends StatelessWidget {
                       },
                     ),
               ),
+              SizedBox(height: 15.h),
+              ExportDataButton(),
             ],
           ),
         ),
