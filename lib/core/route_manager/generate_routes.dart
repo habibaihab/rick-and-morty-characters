@@ -1,5 +1,3 @@
-
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rick_and_morty_characters/core/route_manager/routes_names.dart';
