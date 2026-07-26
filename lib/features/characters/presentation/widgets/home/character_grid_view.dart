@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rick_and_morty_characters/features/characters/domain/entities/character_entity.dart';
-import 'package:rick_and_morty_characters/features/characters/presentation/widgets/character_card.dart';
+import 'package:rick_and_morty_characters/features/characters/presentation/widgets/home/character_card.dart';
 
 class CharacterGridView extends StatelessWidget {
   const CharacterGridView({super.key, required this.charactersList});

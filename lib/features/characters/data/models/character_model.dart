@@ -8,7 +8,9 @@ class CharacterModel extends CharacterEntity{
     required super.species,
     required super.type,
     required super.gender,
-    required super.image});
+    required super.image,
+    required super.origin,
+    required super.location});
 
   factory CharacterModel.fromJson(Map<String,dynamic> json){
     return CharacterModel(
@@ -19,6 +21,8 @@ class CharacterModel extends CharacterEntity{
       type: json['type'],
       gender: json['gender'],
       image: json['image'],
+      origin: json['origin']?['name'] ?? '',
+      location: json['location']?['name'] ?? '',
     );
   }
 

@@ -8,6 +8,8 @@ class CharacterEntity extends Equatable {
   final String type;
   final String gender;
   final String image;
+  final String origin;
+  final String location;
 
   CharacterEntity({
     required this.id,
@@ -16,9 +18,9 @@ class CharacterEntity extends Equatable {
     required this.species,
     required this.type,
     required this.gender,
-    required this.image,
+    required this.image, required this.origin, required this.location,
   });
 
   @override
-  List<Object> get props => [id, name, status, species, type, gender, image,];
+  List<Object> get props => [id, name, status, species, type, gender, image,origin,location];
 }

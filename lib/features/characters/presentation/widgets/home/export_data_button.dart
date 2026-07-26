@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rick_and_morty_characters/core/services/export_data_service/excel_export_service.dart';
 
-import '../../../../core/constants/app_colors.dart';
-import '../manager/get_characters_cubit.dart';
+import '../../../../../core/constants/app_colors.dart';
+import '../../manager/get_characters_cubit.dart';
 
 class ExportDataButton extends StatelessWidget {
   const ExportDataButton({super.key});
@@ -35,7 +35,7 @@ class ExportDataButton extends StatelessWidget {
             SizedBox(width: 10.r,),
             Text(
               "Export to (.XLSX)".toUpperCase() ,
-              style: GoogleFonts.inter(
+              style: GoogleFonts.poppins(
                   color:Colors.black,
                   fontSize: 18.sp,
                   fontWeight: FontWeight.bold

@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rick_and_morty_characters/core/constants/app_colors.dart';
 import 'package:rick_and_morty_characters/features/characters/presentation/manager/get_characters_cubit.dart';
 
-import '../../domain/entities/character_filters_entity.dart';
+import '../../../domain/entities/character_filters_entity.dart';
 import 'filters_bottom_sheet.dart';
 
 class FilterCharacters extends StatelessWidget {
