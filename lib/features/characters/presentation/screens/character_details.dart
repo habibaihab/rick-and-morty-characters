@@ -22,14 +22,14 @@ class CharacterDetails extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: Padding(
-          padding: const EdgeInsets.only(left: 12, top: 4),
+          padding: EdgeInsets.only(left: 12.r, top: 4.r),
           child: CircleAvatar(
-            backgroundColor: Colors.black.withOpacity(0.35),
+            backgroundColor: Colors.black.withValues(alpha: 0.35),
             child: IconButton(
-              icon: const Icon(
+              icon: Icon(
                 Icons.arrow_back_ios_new_rounded,
                 color: Colors.white,
-                size: 18,
+                size: 18.sp,
               ),
               onPressed: () => Navigator.pop(context),
             ),
