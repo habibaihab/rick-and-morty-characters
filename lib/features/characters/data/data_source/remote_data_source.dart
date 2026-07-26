@@ -1,7 +1,7 @@
 import 'package:dio/src/response.dart';
-import 'package:rick_and_morty_characters/core/network/api_contants.dart';
-import 'package:rick_and_morty_characters/core/network/api_service.dart';
 import 'package:rick_and_morty_characters/features/characters/data/data_source/base_data_source.dart';
+import '../../../../core/services/network_service/api_contants.dart';
+import '../../../../core/services/network_service/api_service.dart';
 import '../../domain/entities/character_filters_entity.dart';
 
 class RemoteDataSource implements BaseDataSource{

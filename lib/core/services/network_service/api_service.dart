@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:rick_and_morty_characters/core/network/api_contants.dart';
+
+import 'api_contants.dart';
 
 class ApiService {
 

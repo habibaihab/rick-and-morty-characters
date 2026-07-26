@@ -124,7 +124,13 @@ class HomeScreen extends StatelessWidget {
                     ),
               ),
               SizedBox(height: 15.h),
-              ExportDataButton(),
+              BlocBuilder<GetCharactersCubit,GetCharactersState>(
+                  builder: (context, state) {
+                    if(state is SuccessGetCharacters){
+                      return ExportDataButton();
+                    }
+                    return SizedBox();
+                  },)
             ],
           ),
         ),
