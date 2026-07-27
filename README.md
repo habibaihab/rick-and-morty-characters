@@ -32,7 +32,11 @@ The project follows Clean Architecture principles and uses BLoC (Cubit) for stat
 </p>
 
 <p align="center">
+  <img src="screenShots/export.jpeg" width="220"/>
   <img src="screenShots/characterDetails.jpeg" width="220"/>
+</p>
+
+<p align="center">
   <img src="screenShots/empty.jpeg" width="220"/>
   <img src="screenShots/error.jpeg" width="220"/>
 </p>
