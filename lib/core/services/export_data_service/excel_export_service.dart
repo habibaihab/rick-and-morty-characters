@@ -20,6 +20,8 @@ class ExcelExportService {
       TextCellValue("Species"),
       TextCellValue("Gender"),
       TextCellValue("Type"),
+      TextCellValue("Origin"),
+      TextCellValue("Location"),
     ]);
 
     for(final char in charactersData){
@@ -31,6 +33,8 @@ class ExcelExportService {
         TextCellValue(char.species),
         TextCellValue(char.gender),
         TextCellValue(char.type),
+        TextCellValue(char.origin),
+        TextCellValue(char.location),
       ]);
     }
 
