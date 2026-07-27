@@ -44,8 +44,7 @@ The project follows Clean Architecture principles and uses BLoC (Cubit) for stat
 
 
 ## Demo Video
-
-
+https://drive.google.com/file/d/1_emnOeyjMHWdyNVwxZK3H9f8npXYMXEm/view
 ---
 
 ## Architecture
@@ -80,10 +79,11 @@ GET /character/?name=rick&status=alive
 - cached_network_image
 - excel
 - path_provider
-- open_filex
 - flutter_screenutil
 - go_router
 - google_fonts
+- flutter_file_dialog
+- share_plus
 
 ---
 
