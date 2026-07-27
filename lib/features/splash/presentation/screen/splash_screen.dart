@@ -18,9 +18,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 2), () {
-      context.go(RoutesNames.home);
-    });
+    // Timer(const Duration(seconds: 2), () {
+    //   context.go(RoutesNames.home);
+    // });
   }
 
   @override
