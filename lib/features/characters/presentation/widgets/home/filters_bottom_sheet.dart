@@ -12,6 +12,9 @@ Future<CharacterFiltersEntity?> showFiltersBottomSheet(
 }) {
 
   CharacterFiltersEntity filters = initialFilters;
+  final nameController = TextEditingController(
+    text: initialFilters.name,
+  );
 
   final speciesController = TextEditingController(
     text: initialFilters.species,
@@ -114,6 +117,26 @@ Future<CharacterFiltersEntity?> showFiltersBottomSheet(
                   ),
 
                   SizedBox(height: 25.h),
+                  TextField(
+                    controller: nameController,
+                    decoration: InputDecoration(
+                      labelText: "Name",
+                      labelStyle: TextStyle(
+                          color: AppColors.textPrimary,
+                          fontSize: 16.sp
+                      ),
+                    ),
+                    style: TextStyle(
+                        color: AppColors.textPrimary,
+                        fontSize: 16.sp
+                    ),
+                    onChanged: (value) {
+                      filters = filters.copyWith(
+                        name: value,
+                      );
+                    },
+                  ),
+                  SizedBox(height: 20.h),
 
                   TextField(
                     controller: speciesController,
@@ -171,6 +194,7 @@ Future<CharacterFiltersEntity?> showFiltersBottomSheet(
 
                                 speciesController.clear();
                                 typeController.clear();
+                                nameController.clear();
                                 Navigator.pop(context, filters);
                               });
                             },
