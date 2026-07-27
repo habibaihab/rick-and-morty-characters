@@ -25,6 +25,18 @@ The project follows Clean Architecture principles and uses BLoC (Cubit) for stat
 ---
 
 ## Screenshots
+<p align="center">
+  <img src="screenShots/splash.jpeg" width="220"/>
+  <img src="screenShots/home.jpeg" width="220"/>
+  <img src="screenShots/filters.jpeg" width="220"/>
+</p>
+
+<p align="center">
+  <img src="screenShots/characterDetails.jpeg" width="220"/>
+  <img src="screenShots/empty.jpeg" width="220"/>
+  <img src="screenShots/error.jpeg" width="220"/>
+</p>
+
 
 
 ## Demo Video

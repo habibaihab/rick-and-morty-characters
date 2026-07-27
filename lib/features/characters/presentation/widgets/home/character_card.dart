@@ -36,38 +36,40 @@ class CharacterCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ClipRRect(
-              borderRadius: BorderRadiusGeometry.vertical(
-                top: Radius.circular(20.r),
-              ),
-              child: CachedNetworkImage(
-                imageUrl: characterData.image,
-                width: double.infinity,
-                height: 170.h,
-                placeholder: (context, url) {
-                  return Container(
+            Expanded(
+              child: ClipRRect(
+                borderRadius: BorderRadiusGeometry.vertical(
+                  top: Radius.circular(20.r),
+                ),
+                child: CachedNetworkImage(
+                  imageUrl: characterData.image,
+                  width: double.infinity,
+                  // height: 170.h,
+                  placeholder: (context, url) {
+                    return Container(
+                      height: 170.h,
+                      color: AppColors.filledColor,
+                      child: Center(
+                        child: CircularProgressIndicator(strokeWidth: 2.w),
+                      ),
+                    );
+                  },
+                  errorWidget: (context, url, error) => Container(
                     height: 170.h,
                     color: AppColors.filledColor,
-                    child: Center(
-                      child: CircularProgressIndicator(strokeWidth: 2.w),
-                    ),
-                  );
-                },
-                errorWidget: (context, url, error) => Container(
-                  height: 170,
-                  color: AppColors.filledColor,
-                  child: const Center(
-                    child: Icon(
-                      Icons.broken_image_outlined,
-                      size: 40,
-                      color: Colors.grey,
+                    child:  Center(
+                      child: Icon(
+                        Icons.broken_image_outlined,
+                        size: 40.r,
+                        color: Colors.grey,
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding:  EdgeInsets.all(8.0.r),
               child: Column(
                 spacing: 5.r,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,14 +109,14 @@ class CharacterCard extends StatelessWidget {
                   Row(
                     children: [
                       Container(
-                        width: 8,
-                        height: 8,
+                        width: 8.w,
+                        height: 8.h,
                         decoration: BoxDecoration(
                           color: getStatusColor(characterData.status),
                           shape: BoxShape.circle,
                         ),
                       ),
-                      const SizedBox(width: 6),
+                       SizedBox(width: 6.w),
                       Expanded(
                         child: Text(
                           "${characterData.status} • ${characterData.species}",
